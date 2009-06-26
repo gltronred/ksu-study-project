@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
 	 getInputPorts();
 	 execCommand(instructions[instructionCounter]);
 	 printOutputPorts();
-	 if (outputPorts[0]<>0.0) return 0;
-	 instructionCounter++; instructionCounter &= (1 << 15 - 1);
+	 if (outputPorts[0]!=0.0) return 0;
+	 instructionCounter++; instructionCounter &= ((1 << 15) - 1);
   }
   return 123;
 }
