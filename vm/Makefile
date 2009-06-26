@@ -1,4 +1,4 @@
 FILES=loading.cpp vm.cpp
-CXXFLAGS=-Wall
+CXXFLAGS=-Wall -Wextra
 
 vm: $(FILES)
