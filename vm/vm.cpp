@@ -5,6 +5,7 @@ MemoryCell outputPorts[16384];
 MemoryCell data[16384];
 Command instructions[16384];
 long instructionCounter;
+bool statusRegister;
 void load(char* filename)
 {
 }
