@@ -95,9 +95,9 @@ void execSCommand (SCommand command, int destAddress)
 void execCommand(Command command)
 {
  if (getType (command))
-    execSCommand(getSCommand(command))
+    execSCommand(getSCommand(command), M.instructionCounter);
  else
-    execDCommand(getDCommand(command));
+    execDCommand(getDCommand(command), M.instructionCounter);
 	
 }
 
