@@ -3,7 +3,7 @@
 #include "common.h"
 
 #include <cmath>
-
+#include <cstdio>
 struct DCommand
 {
  int op;
@@ -30,6 +30,8 @@ DCommand getDCommand(Command command)
  result.op = (0xf0000000 & command) >> 28;
  result.r2 = (0x00003fff & command);
  result.r1 = ((0xf0000000 & command) ^ command) >> 14;
+ printf ("op = %d; r1 = %d; r2 = %d; command = %d\n",result.op, result.r1, result.r2,command);
+ 
  return result;
 }
 
@@ -57,6 +59,7 @@ SCommand getSCommand (Command command)
  result.op = command >> 24;
  result.r1 = command & 0x00003fff;
  result.imm = (command ^ (command & 0xff000000)) >> 14;
+ printf ("op = %d; r1 = %d; imm = %d; command = %d\n",result.op, result.r1, result.imm, command);
  return result;
 }
 
