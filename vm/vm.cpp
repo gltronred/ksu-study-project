@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <cstdio>
+#include <cstring>
 
 Machine M;
 
@@ -20,6 +21,7 @@ void getInputPorts()
 {
   int port = 0;
   double value = 0.0;
+  memset(M.inputPorts, sizeof M.inputPorts, 0);
   while(port!=-1){
     scanf("%d",&port);
     if(port!=-1){
@@ -39,7 +41,7 @@ int main(int argc, char *argv[])
 	 getInputPorts();
 	 execCommand(M.instructions[M.instructionCounter],M);
 	 printOutputPorts(timer);
-	 if (fabs(M.outputPorts[0])<EPS) return 0;
+	 if (fabs(M.outputPorts[0])>EPS) return 0;
 	 M.instructionCounter++; M.instructionCounter &= ((1 << 15) - 1);
 	 timer++;
   }
