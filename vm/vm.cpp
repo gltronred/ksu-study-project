@@ -14,12 +14,6 @@ int main(int argc, char *argv[])
   M=load(argv[1]);
   M.instructionCounter=0;
   int timer = 0;
-  for (int j=0; j<16384; j++)
-     if (M.instructions[j])
-	 {printf("%d ", j);
-      execCommand (M.instructions[j],M);
-	  printf("\n");
-	  }
   while (true)
   {
 	 execCommand(M.instructions[M.instructionCounter],M);
