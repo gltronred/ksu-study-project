@@ -14,16 +14,21 @@ int main(int argc, char *argv[])
 {
   M=load(argv[1]);
   M.instructionCounter=0;
-  int timer = 0;
-  while (true)
+  printData(M);
+  for (int timer = 0; timer < 2; timer++)
   {
 	 printf ("%u: ", timer);
-	 disAsmCommand(M.instructions[M.instructionCounter]);
-	 execCommand(M.instructions[M.instructionCounter],M);
+	 for (int i=0; i< 16384; i++)
+	 {
+	  
+	  if (M.instructions[i]!=0) 
+	  {
+	   printf("%u: ",i);
+	   disAsmCommand(M.instructions[i]);
+	  }
+	  execCommand(M.instructions[i],M);
+     }
 	 printOutputPorts(timer,M);
-	 if (fabs(M.outputPorts[0])>EPS) return 0;
-	 M.instructionCounter++; M.instructionCounter &= ((1 << 15) - 1);
-	 timer++;
   }
-  return 123;
+  return 0;
 }

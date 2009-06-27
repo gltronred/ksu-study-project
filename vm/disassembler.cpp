@@ -38,7 +38,8 @@ void disAsmCommand (Command command)
 void printData (Machine M)
 {
  for (int i=0; i<16384; i++)
-  printf ("%u: %.6f\n", i, M.data[i]);
+  if (M.data[i]!=0.0)
+    printf ("%u: %.6f\n", i, M.data[i]);
 }
 
 void disAsmProgram (Machine M, bool nopsOmitted)
