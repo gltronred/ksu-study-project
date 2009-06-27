@@ -102,9 +102,9 @@ void execCommand(Command command)
 
 void printOutputPorts(int step)
 {
-  for (i=0; i<16384; i++)
+  for (int i=0; i<16384; i++)
     if (M.outputPorts[i]!=0.0)
-	  printf ("%10Ld ; port %d : %20.8f ;", step, i, M.outputPorts[i]);
+	  printf ("%10d ; port %d : %20.8f ;", step, i, M.outputPorts[i]);
   printf("\n");
 }
 
