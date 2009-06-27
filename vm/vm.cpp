@@ -15,16 +15,16 @@ int main(int argc, char *argv[])
   M=load(argv[1]);
   M.instructionCounter=0;
   printData(M);
-  for (int timer = 0; timer < 2; timer++)
+  for (int timer = 0; timer < 1000; timer++)
   {
 	 printf ("%u: ", timer);
 	 for (int i=0; i< 16384; i++)
 	 {
-	  
+	  M.instructionCounter = i;
 	  if (M.instructions[i]!=0) 
 	  {
-	   printf("%u: ",i);
-	   disAsmCommand(M.instructions[i]);
+	   //printf("%u: ",i);
+	   //disAsmCommand(M.instructions[i]);
 	  }
 	  execCommand(M.instructions[i],M);
      }
