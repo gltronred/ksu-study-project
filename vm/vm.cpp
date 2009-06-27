@@ -4,7 +4,6 @@
 #include <cmath>
 #include <cstdio>
 Machine M;
-
 struct DCommand
 {
  int op;
@@ -19,7 +18,7 @@ struct SCommand
   int r1;
 };
 
-bool getType(Command command)
+bool getCommandType(Command command)
 {
   int value = 0xf0000000 & command;
   return (value==0);
@@ -94,16 +93,19 @@ void execSCommand (SCommand command, int destAddress)
 
 void execCommand(Command command)
 {
- if (getType (command))
+ if (getCommandType (command))
     execSCommand(getSCommand(command), M.instructionCounter);
  else
     execDCommand(getDCommand(command), M.instructionCounter);
 	
 }
 
-void printOutputPorts()
+void printOutputPorts(int step)
 {
- //TODO: enter the list of ports that are observed
+  for (i=0; i<16384; i++)
+    if (M.outputPorts[i]!=0.0)
+	  printf ("%10Ld ; port %d : %20.8f ;", step, i, M.outputPorts[i]);
+  printf("\n");
 }
 
 void getInputPorts()
@@ -114,13 +116,15 @@ int main(int argc, char *argv[])
 {
   M=load(argv[1]);
   M.instructionCounter=0;
+  int timer = 0;
   while (true)
   {
 	 getInputPorts();
 	 execCommand(M.instructions[M.instructionCounter]);
-	 printOutputPorts();
+	 printOutputPorts(timer);
 	 if (fabs(M.outputPorts[0])<EPS) return 0;
 	 M.instructionCounter++; M.instructionCounter &= ((1 << 15) - 1);
+	 timer++;
   }
   return 123;
 }
