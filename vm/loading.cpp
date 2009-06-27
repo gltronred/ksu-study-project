@@ -7,10 +7,13 @@
 Machine load(char* filename)
 {
   Machine M;
-  memset(M.inputPorts, sizeof(M.inputPorts),0);  
-  memset(M.outputPorts, sizeof(M.outputPorts),0);  
-  memset(M.data, sizeof(M.data),0);  
-  memset(M.instructions, sizeof(M.instructions),0);
+  for (int i=0; i<16384; i++)
+  {
+  M.inputPorts[i]=0.0;  
+  M.outputPorts[i]=0.0;  
+  M.instructions[i]=0u;
+  M.data[i] = 0.0;
+  }
   M.statusRegister = false;
   FILE* fi = fopen(filename, "rb");
   bool ok = !feof(fi);
