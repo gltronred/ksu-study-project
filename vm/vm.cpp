@@ -41,11 +41,7 @@ int main(int argc, char *argv[])
 	 getInputPorts();
 	 execCommand(M.instructions[M.instructionCounter],M);
 	 printOutputPorts(timer);
-<<<<<<< .mine
-	 if (fabs(M.outputPorts[0])!=0.0) return 0;
-=======
 	 if (fabs(M.outputPorts[0])>EPS) return 0;
->>>>>>> .r17
 	 M.instructionCounter++; M.instructionCounter &= ((1 << 15) - 1);
 	 timer++;
   }
