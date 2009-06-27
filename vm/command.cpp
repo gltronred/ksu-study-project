@@ -75,7 +75,7 @@ void execSCommand (SCommand command, int destAddress, Machine& M)
 	          return; // CMPZ
 	  case 2: value = fabs (sqrt (M.data [command.r1])); break; //SQRT
 	  case 3: value = M.data [command.r1]; break; //COPY
-	  case 4: getInputPorts(M); value = M.inputPorts [command.r1]; break; //INPUT
+	  case 4: getInputPort(M, command.r1); value = M.inputPorts [command.r1]; break; //INPUT
   }
   M.data [destAddress] = value;
 }

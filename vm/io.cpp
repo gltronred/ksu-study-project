@@ -16,16 +16,9 @@ void printOutputPorts(int step, Machine& M)
   if (!flag) printf("\n");
 }
 
-void getInputPorts(Machine& M)
+void getInputPort(Machine& M, int portNumber)
 {
-  int port = 0;
-  double value = 0.0;
-  memset(M.inputPorts, sizeof M.inputPorts, 0);
-  while(port!=-1){
-    scanf("%d",&port);
-    if(port!=-1){
-      scanf("%lf",&value);
-      M.inputPorts[port]=value;
-    }
-  }
+      double value;
+	  scanf("%lf",&value);
+      M.inputPorts[portNumber]=value;
 }
