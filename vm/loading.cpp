@@ -2,7 +2,7 @@
 #include "loading.h"
 
 #include <cstdio>
-
+#include <cstring>
 typedef struct {
   double data;
   int code;
@@ -16,6 +16,11 @@ typedef struct {
 Machine load(char* filename)
 {
   Machine M;
+  memset(M.inputPorts, sizeof(M.inputPorts),0);  
+  memset(M.outputPorts, sizeof(M.outputPorts),0);  
+  memset(M.data, sizeof(M.data),0);  
+  memset(M.instructions, sizeof(M.instructions),0);
+  M.statusRegister = false;
   FILE* fi = fopen(filename, "rb");
   bool ok = !feof(fi);
   int k=1;

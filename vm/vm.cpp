@@ -113,6 +113,7 @@ void getInputPorts()
 {
  //TODO: specify the input stream for ports
 }
+
 int main(int argc, char *argv[])
 {
   M=load(argv[1]);
