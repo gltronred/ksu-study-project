@@ -25,11 +25,11 @@ Machine load(char* filename)
   bool ok = !feof(fi);
   int k=1;
   while(ok){
-    char s[13];
+    char s[12];
     for(int i=0;i<12;i++)
-      fscanf(fi,"%c",s+i);
+      s[i]=fgetc(fi);
     //This is unsafe. Test whether padding is affected
-    if(k&1){
+    if((k&1)==1){
       Odd*x=(Odd*)s;
       M.instructions[k-1]=x->code;
       M.data[k-1]=x->data;
