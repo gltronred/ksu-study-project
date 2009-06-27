@@ -1,5 +1,5 @@
 TARGETS=vm
-FILES=loading.cpp command.cpp io.cpp vm.cpp
+FILES=loading.cpp command.cpp io.cpp vm.cpp disassembler.cpp
 CXXFLAGS=-Wall -Wextra -Wpadded
 
 .PHONY: default clean

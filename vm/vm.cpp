@@ -2,6 +2,7 @@
 #include "loading.h"
 #include "command.h"
 #include "io.h"
+#include "disassembler.h"
 
 #include <cmath>
 #include <cstdio>
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
   int timer = 0;
   while (true)
   {
+	 printf ("%u: ", timer);
+	 disAsmCommand(M.instructions[M.instructionCounter]);
 	 execCommand(M.instructions[M.instructionCounter],M);
 	 printOutputPorts(timer,M);
 	 if (fabs(M.outputPorts[0])>EPS) return 0;

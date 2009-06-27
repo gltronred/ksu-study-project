@@ -6,11 +6,14 @@
 
 void printOutputPorts(int step, Machine& M)
 {
-  printf ("%10d ; ", step); 
+  bool flag = true;
   for (int i=0; i<16384; i++)
     if (M.outputPorts[i]!=0.0)
+	{
+	  if (flag) {printf ("%10d ; ", step); flag=false;} 
 	  printf ("port %d : %20.8f ; ", i, M.outputPorts[i]);
-  printf("\n");
+    }
+  if (!flag) printf("\n");
 }
 
 void getInputPorts(Machine& M)
