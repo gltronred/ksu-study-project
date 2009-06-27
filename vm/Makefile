@@ -1,5 +1,5 @@
 TARGETS=vm
-FILES=loading.cpp command.cpp vm.cpp
+FILES=loading.cpp command.cpp io.cpp vm.cpp
 CXXFLAGS=-Wall -Wextra
 
 .PHONY: default clean
