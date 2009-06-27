@@ -82,7 +82,7 @@ void execSCommand (SCommand command, int destAddress)
 	  case 0: return; // NOP
 	  case 1: M.statusRegister = compareValues (M.data[command.r1], 
 	                                            0.0,
-												command.imm);
+												command.imm >> 7);
 	          return; // CMPZ
 	  case 2: value = fabs (sqrt (M.data [command.r1])); break; //SQRT
 	  case 3: value = M.data [command.r1]; break; //COPY
