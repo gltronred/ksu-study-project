@@ -28,6 +28,7 @@ Machine load(char* filename)
     char s[12];
     for(int i=0;i<12;i++)
       s[i]=fgetc(fi);
+	  
     //This is unsafe. Test whether padding is affected
     if((k&1)==1){
       Odd*x=(Odd*)s;

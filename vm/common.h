@@ -3,7 +3,7 @@
 
 #define EPS 1e-8
 
-typedef int Command;
+typedef unsigned int Command;
 typedef double MemoryCell;
 
 typedef struct {
