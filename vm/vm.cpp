@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
   M=load(argv[1]);
   M.instructionCounter=0;
   printData(M);
-  for (int timer = 0; timer < 1000; timer++)
+  for (int timer = 0; timer <4000000; timer++)
   {
 	 printf ("%u: ", timer);
 	 for (int i=0; i< 16384; i++)
@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
 	  execCommand(M.instructions[i],M);
      }
 	 printOutputPorts(timer,M);
+	 if (M.outputPorts[0]>0.0) return 0; 
   }
+  //disAsmProgram(M, true);
   return 0;
 }
