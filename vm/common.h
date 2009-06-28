@@ -7,6 +7,7 @@ typedef unsigned int Command;
 typedef double MemoryCell;
 
 typedef struct {
+  int programSize;
   MemoryCell inputPorts[16384];
   MemoryCell outputPorts[16384];
   MemoryCell data[16384];

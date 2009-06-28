@@ -8,17 +8,17 @@ void printOutputPorts(int step, Machine& M)
 {
   bool flag = true;
   for (int i=0; i<16384; i++)
-    if (M.outputPorts[i]!=0.0)
+    if (M.outputPorts[i]!=0.0L)
 	{
 	  if (flag) {printf ("%10d ; ", step); flag=false;} 
-	  printf ("port %d : %20.8f ; ", i, M.outputPorts[i]);
+	  printf ("port %d : %20.8lf ; ", i, M.outputPorts[i]);
     }
   if (!flag) printf("\n");
 }
 
 void getInputPort(Machine& M, int portNumber)
 {
-      double value;
+      MemoryCell value;
 	  scanf("%lf",&value);
       M.inputPorts[portNumber]=value;
 }

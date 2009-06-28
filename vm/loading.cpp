@@ -39,6 +39,7 @@ Machine load(char* filename)
 		 fread (buffer,8,1,fi);
 	  }
     }
+  M.programSize=k;
   fclose(fi);
   //scanf("%*d");
   return M;

@@ -18,13 +18,13 @@ int main(int argc, char *argv[])
   for (int timer = 0; timer <4000000; timer++)
   {
 	 printf ("%u: ", timer);
-	 for (int i=0; i< 16384; i++)
+	 for (int i=0; i< M.programSize; i++)
 	 {
 	  M.instructionCounter = i;
 	  if (M.instructions[i]!=0) 
 	  {
-	   //printf("%u: ",i);
-	   //disAsmCommand(M.instructions[i]);
+	    //printf("%u: ",i);
+	    //disAsmCommand(M.instructions[i]);
 	  }
 	  execCommand(M.instructions[i],M);
      }
