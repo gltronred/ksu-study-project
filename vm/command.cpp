@@ -1,4 +1,3 @@
-
 #include "command.h"
 #include "common.h"
 #include "io.h"
@@ -32,7 +31,7 @@ void execDCommand (DCommand command, int destAddress, Machine& M)
 	case 3: value = M.data [command.r1] * M.data [command.r2]; break;
 	case 4: value = M.data [command.r2] == 0.0 ? 0.0 : 
 	                M.data [command.r1] / M.data [command.r2]; break;
-	case 5: M.outputPorts [command.r1] = M.data[command.r2]; return;
+	case 5: {M.outputPorts [command.r1] = M.data[command.r2]; return;}
 	case 6: value = M.statusRegister ? M.data [command.r1] : 
                                        M.data [command.r2];	 break;			
 	default: return;
