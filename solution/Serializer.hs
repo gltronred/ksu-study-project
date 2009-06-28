@@ -1,3 +1,6 @@
+module Serializer
+    where
+
 import Data.Binary
 import Data.Binary.Get
 import Data.Binary.Put
