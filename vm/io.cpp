@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <cstring>
+#include <cmath>
 
 void printOutputPorts(int step, Machine& M)
 {
@@ -13,6 +14,8 @@ void printOutputPorts(int step, Machine& M)
 	  if (flag) {printf ("%10d ; ", step); flag=false;} 
 	  printf ("port %d : %20.8lf ; ", i, M.outputPorts[i]);
     }
+  double radius = sqrt( M.outputPorts[2]*M.outputPorts[2] + M.outputPorts[3]*M.outputPorts[3] );
+  printf("radius : %20.2lf ; ", radius);
   if (!flag) printf("\n");
 }
 
