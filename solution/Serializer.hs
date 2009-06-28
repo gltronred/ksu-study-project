@@ -33,7 +33,7 @@ instance Binary Frame
 
 instance Binary Solution
  where put (Solution (Header b c) list) = do
-            putWord32be 0xcafebabe
+            putWord32le 0xcafebabe
             putWord32le b
             putWord32le c
             mapM_ put list
