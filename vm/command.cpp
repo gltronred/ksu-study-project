@@ -64,7 +64,7 @@ bool compareValues (MemoryCell r1, MemoryCell r2, int opcode)
 
 void execSCommand (SCommand command, int destAddress, Machine& M)
 {
-  int value;
+  MemoryCell value;
   switch (command.op)
   {
 	  case 0: return; // NOP
