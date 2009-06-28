@@ -47,5 +47,6 @@ solution = Solution (Header 42 1001) [
                                       Frame 0 3 [PVMapping 16000 1001.0, PVMapping 2 (-2466.4848), PVMapping 3 0.0], 
                                       Frame 1 1 [PVMapping 2 0.0],
                                       Frame 18875 1 [PVMapping 2 1482.9351],
-                                      Frame 18876 1 [PVMapping 2 0.0]
+                                      Frame 18876 1 [PVMapping 2 0.0],
+                                      Frame 19877 0 []
                                      ]
