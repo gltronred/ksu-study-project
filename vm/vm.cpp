@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	  execCommand(M.instructions[i],M);
      }
 	 printOutputPorts(timer,M);
-	 if (M.outputPorts[0]>0.0) return 0; 
+	 if (M.outputPorts[0]!=0.0) return 0;
   }
   //disAsmProgram(M, true);
   return 0;
