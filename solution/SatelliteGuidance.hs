@@ -21,7 +21,7 @@ finDiff op l = head l:finDiff' op l
 finDiff' op [] = []
 finDiff' op (x:xs) = if (null xs) then []
                                   else (op x (head xs)):finDiff' op xs
-filterProgram (Program list) = Program (finDiff  filterSimFrame list)
+filterProgram (Program list) = Program (finDiff filterSimFrame list)
 
 subtractCompactified (Number a) (Number b) = Number (a - b)
 subtractCompactified _ _ = InfinitePoint
