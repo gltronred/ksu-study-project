@@ -14,10 +14,10 @@ int main(int argc, char *argv[])
 {
   M=load(argv[1]);
   M.instructionCounter=0;
-  printData(M);
+  //printData(M);
   for (int timer = 0; timer <4000000; timer++)
   {
-	 printf ("%u: ", timer);
+	 //printf ("%u: ", timer);
 	 for (int i=0; i< M.programSize; i++)
 	 {
 	  M.instructionCounter = i;
