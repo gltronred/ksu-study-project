@@ -30,8 +30,8 @@ compactifyProgram (Program list) = map (\(a,l)->(Number (fromIntegral a), map sn
 augmentWithInfinity l = (tail l) ++ [(InfinitePoint, [])]
 subtractFrames (a, l1) (b, l2) = (subtractCompactified a b, l2)
 getFinDiff l = zipWith subtractFrames (augmentWithInfinity l) l
-printPorts = putStrLn . unwords . map show
-createIOStream (Number a, ports) = replicateM_ (fromIntegral a) $ printPorts ports
-createIOStream (InfinitePoint, ports) = forever $ printPorts ports
-runIOStream list = sequence_ [createIOStream l| l <- list]
-runIOProgram = runIOStream . getFinDiff . compactifyProgram
+--printPorts = putStrLn . unwords . map show
+createStream (Number a, ports) = replicateM (fromIntegral a) ports
+createStream (InfinitePoint, ports) = repeat ports
+assembleStream = (>>= createStream)
+assembleProgramStream = assembleStream . getFinDiff . compactifyProgram
