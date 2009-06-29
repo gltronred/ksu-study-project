@@ -7,11 +7,19 @@ import Data.Binary
 
 data Burst = Burst Int Double Double deriving Show
 
-convertBurst :: [Burst] -> Solution
-convertBurst = getSolution . getProgram
+convertBurst :: Int -> [Burst] -> Solution
+convertBurst scenario l = getSolution $ getProgram scenario l
 
-getProgram :: [Burst] -> Program
-getProgram l = Program $ foldl (++) [] $ map getElem l
+getProgram :: Int -> [Burst] -> Program
+getProgram scenario l = Program $ foldl (++) [] $ map (getElem scenario) l
 
-getElem :: Burst -> [(Word32, [(Word32,Double)])]
-getElem (Burst t x y) = [(fromIntegral t, [(2,x), (3,y)]), (fromIntegral $ t+1, [(2,0), (3,0)])]
+getElem :: Int -> Burst -> [(Word32, [(Word32,Double)])]
+getElem scenario (Burst t x y) = 
+    [(fromIntegral t, 
+      [(16000,fromIntegral scenario), 
+       (2,x), 
+       (3,y)]), 
+     (fromIntegral $ t+1, 
+      [(16000,fromIntegral scenario), 
+       (2,0), 
+       (3,0)])]
