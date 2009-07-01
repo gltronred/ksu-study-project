@@ -15,12 +15,14 @@ readOutputPorts string = OutputPorts [(a `div` 2, read b) |(a,b) <- filter (even
 
 interactionStep outputPorts transition i o =
  do s <- return $ show $ transition outputPorts
-    putStrLn s
+    putStrLn $ show outputPorts
     hPutStrLn i s
-    op <- fmap (Just . readOutputPorts) $ hGetLine o
+    sss <- hGetLine o
+    putStrLn sss
+    --op <- fmap (Just . readOutputPorts) $ hGetLine o
     isEOF <- hIsEOF o
     if (isEOF)  then return ()
-                else interactionStep op transition i o   
+                else interactionStep outputPorts transition i o   
     
 
 interaction::FilePath->(Maybe OutputPorts -> InputPorts) -> IO ()
