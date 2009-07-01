@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.16 -->
+  <!-- interface-naming-policy project-wide -->
+  <widget class="GtkWindow" id="window1">
+    <property name="title" translatable="yes">LFSR</property>
+    <child>
+      <widget class="GtkTable" id="table1">
+        <property name="visible">True</property>
+        <property name="border_width">15</property>
+        <property name="n_rows">3</property>
+        <property name="n_columns">3</property>
+        <child>
+          <widget class="GtkLabel" id="decryptLabel">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Plaintext</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Ciphertext</property>
+          </widget>
+          <packing>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="entryPlaintext">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">&#x25CF;</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="entryCiphertext">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">&#x25CF;</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="buttonDecrypt">
+            <property name="label" translatable="yes">&#x420;&#x430;&#x441;&#x448;&#x438;&#x444;&#x440;&#x43E;&#x432;&#x430;&#x442;&#x44C;</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="focus_on_click">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="buttonEncrypt">
+            <property name="label" translatable="yes">&#x417;&#x430;&#x448;&#x438;&#x444;&#x440;&#x43E;&#x432;&#x430;&#x442;&#x44C;</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="buttonGenerate">
+            <property name="label" translatable="yes">&#x421;&#x433;&#x435;&#x43D;&#x435;&#x440;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x442;&#x44C;</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
