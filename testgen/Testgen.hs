@@ -34,13 +34,12 @@ safeInput filename = useFile filename (\h -> hGetContents h >>= safeReadIO)
 openFiles = do testInput:userOutput:correctAns:c <- getArgs; return (testInput, userOutput, correctAns)
 
 createTestSet gen start count = do
-  testSet <- replicateM count (newStdGen >>= (\rnd -> return $ generate 10000 rnd gen))
+  testSet <- replicateM count (newStdGen >>= (\rnd -> return $ generate 20 rnd gen))
   sequence_ $ zipWith writeTo2File [start..] testSet
 
 writeTo2File n test = do
-  writeToFile "dat" num $ fst test
-  writeToFile "ans" num $ snd test
-    where num = show n
+  writeToFile "dat" n $ fst test
+  writeToFile "ans" n $ snd test
 
 writeToFile suffix n x = do 
   h <- openFile (pad n ++ "." ++ suffix) WriteMode 
@@ -64,3 +63,9 @@ runTests generator solve checker count = check (defaultConfig {configMaxTest = c
 
 runTestsCollecting :: (Show input, Show correct, Show a) => Gen (input, correct) -> (input -> output) -> (input -> output -> correct -> Verdict) -> Int -> (input -> correct -> a) -> IO ()
 runTestsCollecting generator solve checker count collector = check (defaultConfig {configMaxTest = count}) $ forAll generator $ \(i,c) -> collect (collector i c) (checker i (solve i) c == AC)
+
+runTestsVerbose :: (Show input, Show correct) => Gen (input, correct) -> (input -> output) -> (input -> output -> correct -> Verdict) -> Int -> IO ()
+runTestsVerbose generator solve checker count = check (defaultConfig {
+                                                         configMaxTest = count, 
+                                                         configEvery = \n s -> (show n)++(unlines s)}) $ 
+                                                forAll generator $ \(i,c) -> checker i (solve i) c == AC

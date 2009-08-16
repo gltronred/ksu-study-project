@@ -11,7 +11,7 @@ import Text.ParserCombinators.Parsec
 data Input = Input [Int] -- List of integers
 data Output = Output Int -- Sum of input
 data Correct = Correct Int -- Double sum of input (because correct is not output in general)
-data Problem = Problem Input Output Correct
+-- data Problem = Problem Input Output Correct
 
 -- Procedures to read and write input, output and correct data (e.g. with Parsec)
 
