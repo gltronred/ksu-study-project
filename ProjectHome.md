@@ -1,0 +1,1 @@
+A project for a group of KSU students learning Haskell.
